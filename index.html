@@ -70,6 +70,9 @@
 <script src="js/three.js"></script>
 <script src="js/OrbitControls.js"></script>
 <script src="js/ObjectLoader.js"></script>
+<script src="js/OBJLoader.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/three.module.js"></script>
 	  
 	  <script> 
 		  var scene = new THREE.Scene( );
@@ -90,42 +93,46 @@
 		 });
 		  
 		  
+		  
+		  
 		  controls = new THREE.OrbitControls( camera, renderer.domElement);
 		  
+				var ambient = new THREE.AmbientLight( 0x444444 );
+				scene.add( ambient );
+				var directionalLight = new THREE.DirectionalLight( 0xffeedd );
+				directionalLight.position.set( 0, 0, 1 ).normalize( );
+				scene.add( directionalLight );
+		  
+		  //loading object
+			var objectLoader = new THREE.ObjectLoader();
+			objectLoader.load("objects/model.json", 
+							  function ( obj ) 
+							  {
+				scene.add( obj );
+				//obj.rotation += 0.01;
+			} );
 		  //create shape
-		 // var geometry = new THREE.BoxGeometry( 1,1,1 );
+		 var geometry = new THREE.BoxGeometry( 10,10,10 );
 		  
 		  //create material color
-		// var material = new THREE.MeshBasicMaterial( {color: 0xFFFFFF, wireframe: true } ); 
-		  //var cube = new THREE.Mesh( geometry, material );
-		  //scene.add(cube);
+		var material = new THREE.MeshBasicMaterial( {color: 0xFFFFFF, wireframe: true } ); 
+		var cube = new THREE.Mesh( geometry, material );
+		//scene.add(cube);
 		  
 		  
-		  var loader = new THREE.ObjectLoader( );
+		var ambientLight = new THREE.AmbientLight( 0xFFFFFF, 1 );
+		 scene.add(ambientLight);
 		  
-		  loader.load
-		  (
-		  		'objects/logo.json',
-			  
-			  function( object )
-			  {
-				//var material = new THREE.MeshBasicMaterial( {color: 0xFFFFFF, wireframe: false } ); 
-		  		//var object = new THREE.Mesh( geometry, material );
-				  
-				  scene.add( object );
-			  }
-		  );
-		  
-		  camera.position.z = 3;
-		  
-		  //var ambientLight = new THREE.AmbientLight( 0xFFFFFF, 5);
-		  
-		  //scene.add( ambientLight );
-
+		  camera.position.z = 10;
+		  camera.position.y = 5;
 		
 		  var update = function( )
 		  {
-			  //object.rotation.z += 0.01;
+			  //cube.rotation.z += 0.01;
+			  //cube.rotation.x += 0.005;
+			  camera.rotation.y += 0.0005;
+			  //obj.rotation.x += 0.001;
+			  
 			  
 		  };
 		  
@@ -300,22 +307,17 @@
       </div>
     </aside>
 
-    <!-- Map -->
-    <section id="contact" class="map">
-      <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-      <br/>
-      <small>
-        <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-      </small>
-    </section>
-
     <!-- Footer -->
     <footer>
       <div class="container">
         <div class="row">
           <div class="col-lg-10 mx-auto text-center">
+            <h4>
+              <strong>Start Bootstrap</strong>
+            </h4>
             <h4><strong>Daniel Edwards</strong></h4>
             <p>4912 Old Mears Rd
+              <br>Wilmington, NC 28403</p>
             <br>Wilmington, NC 28403</p>
             <ul class="list-unstyled">
               <li>
@@ -355,13 +357,17 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this template -->
+    <script src="js/stylish-portfolio.js"></script>
   <script src="js/stylish-portfolio.js"></script>
 
 </body>
