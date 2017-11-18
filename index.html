@@ -97,18 +97,18 @@
 		  //create material color
 		 var material = new THREE.MeshBasicMaterial( {color: 0xFFFFFF, wireframe: true } ); 
 		  var cube = new THREE.Mesh( geometry, material );
-		  scene.add(cube);
+		  //scene.add(cube);
 		  
-		  //var loader = new THREE.ObjectLoader( );
+		 /var loader = new THREE.ObjectLoader( );
 		  
-		 // loader.load
-		  //(
-		  	//	'objects/personallogo.obj',
-			 // function( object )
-			//  {
-			//	  scene.add( object );
-			//  }
-		  //);
+		  loader.load
+		  (
+		  		'objects/personallogo.obj',
+			  function( object )
+			  {
+				  scene.add( object );
+			  }
+		  );
 		  
 		  camera.position.z = 3;
 		  
@@ -117,7 +117,7 @@
 		  
 		  var update = function( )
 		  {
-			  cube.rotation.x += 0.01:
+			  //cube.rotation.x += 0.01:
 			  
 		  };
 		  
