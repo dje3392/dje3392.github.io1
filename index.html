@@ -68,7 +68,7 @@
 			
 			 
 <script src="js/three.js"></script>
-<script src='js/OrbitControls.js'></script>
+<script src="js/OrbitControls.js"></script>
 <script src="js/ObjectLoader.js"></script>
 	  
 	  <script> 
@@ -91,33 +91,41 @@
 		  
 		  
 		  controls = new THREE.OrbitControls( camera, renderer.domElement);
+		  
 		  //create shape
-		  var geometry = new THREE.BoxGeometry( 1,1,1 );
+		 // var geometry = new THREE.BoxGeometry( 1,1,1 );
 		  
 		  //create material color
-		 var material = new THREE.MeshBasicMaterial( {color: 0xFFFFFF, wireframe: true } ); 
-		  var cube = new THREE.Mesh( geometry, material );
-		  scene.add(cube);
+		// var material = new THREE.MeshBasicMaterial( {color: 0xFFFFFF, wireframe: true } ); 
+		  //var cube = new THREE.Mesh( geometry, material );
+		  //scene.add(cube);
 		  
-		 //var loader = new THREE.ObjectLoader( );
 		  
-		  //loader.load
-		  //(
-		  		//'objects/personallogo.obj',
-			 // function( object )
-			  //{
-				  //scene.add( object );
-			  //}
-		  //);
+		  var loader = new THREE.ObjectLoader( );
+		  
+		  loader.load
+		  (
+		  		'objects/logo.json',
+			  
+			  function( object )
+			  {
+				//var material = new THREE.MeshBasicMaterial( {color: 0xFFFFFF, wireframe: false } ); 
+		  		//var object = new THREE.Mesh( geometry, material );
+				  
+				  scene.add( object );
+			  }
+		  );
 		  
 		  camera.position.z = 3;
 		  
+		  //var ambientLight = new THREE.AmbientLight( 0xFFFFFF, 5);
 		  
+		  //scene.add( ambientLight );
 
-		  
+		
 		  var update = function( )
 		  {
-			  //cube.rotation.x += 0.01:
+			  //object.rotation.z += 0.01;
 			  
 		  };
 		  
