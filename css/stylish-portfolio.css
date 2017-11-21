@@ -31,7 +31,8 @@ body {
 
 .text-vertical-center h1:hover {
     
-  font-weight:1200;
+  color: black;
+  transition: color 0.2s;
 
 }
 
