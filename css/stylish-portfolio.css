@@ -87,7 +87,7 @@ hr.small {
   -o-transition: all .4s ease 0s;
   transition: all .4s ease 0s;
   transform: translateX(250px);
-  background: #440;
+  background: #2E5AA3;
 }
 
 .sidebar-nav {
