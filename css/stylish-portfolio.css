@@ -41,14 +41,14 @@ body {
 /* Custom Button Styles */
 
 .btn-dark {
-  color: #fff;
+  color: #2E5AA3;
   border: none;
   border-radius: 0;
   background-color: rgba(0, 0, 0, .4);
 }
 
 .btn-dark:hover, .btn-dark:focus, .btn-dark:active {
-  color: #fff;
+  color: #FFFFFF;
   background-color: rgba(0, 0, 0, .7);
 }
 
